@@ -7,6 +7,8 @@
     command: "tar zxf /opt/SP/apps/tomcat.tar.gz  -C /opt/SP/apps/tomcat --strip-components 1"
     
   - name: Copy DevOps Project War Files
-    copy: src=/root/.jenkins/workspace/Devops_301_demo/target/devops-0.0.1-SNAPSHOT.war dest=/opt/SP/apps/tomcat/webapps/ROOT.war mode=0644
-    notify: 
-    - Restart Tomcat
+    copy: src=/root/.jenkins/workspace/Devops_301_demo/target/devops-0.0.1-SNAPSHOT.war dest=/opt/SP/apps/tomcat/webapps/ mode=0644
+
+  handlers:
+  - name: Restart Tomcat
+    shell: "nohup sh /opt/SP/apps/tomcat/bin/catalina.sh start" 
