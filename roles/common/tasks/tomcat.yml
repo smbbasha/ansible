@@ -5,10 +5,12 @@
 
   - name: Extract Tomcat
     command: "tar zxf /opt/SP/apps/tomcat.tar.gz  -C /opt/SP/apps/tomcat --strip-components 1"
-    
-  - name: Copy DevOps Project War Files
-    copy: src=/root/.jenkins/workspace/Devops_301_demo/target/devops-0.0.1-SNAPSHOT.war dest=/opt/SP/apps/tomcat/webapps/ mode=0644
+ 
+- name: Copy Index Page Files
+    copy: src=/root/.jenkins/workspace/Devops_301_demo/target/*.war dest=/opt/SP/apps/tomcat/webapps/ mode=0644
+    notify: 
+    - Restart Tomcat
 
-  handlers:
+handlers:
   - name: Restart Tomcat
     shell: "nohup sh /opt/SP/apps/tomcat/bin/catalina.sh start" 
