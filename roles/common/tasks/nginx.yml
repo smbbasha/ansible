@@ -7,7 +7,7 @@
 
 - name: Insert Index Page
   template:
-   src: index.html
+   src: /root/.jenkins/workspace/Devops_301_demo/index.html
    dest: /var/www/html/index.html
   notify:
   - restart nginx
