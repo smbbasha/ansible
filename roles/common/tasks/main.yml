@@ -4,5 +4,5 @@
   file: path=/opt/SP/apps/tomcat state=directory
 
 - include: java.yml
-- include: tomcat.yml
 - include: nginx.yml
+- include: tomcat.yml
