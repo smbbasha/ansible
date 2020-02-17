@@ -5,9 +5,6 @@
 
   - name: Extract Tomcat
     command: "tar zxf /opt/SP/apps/tomcat.tar.gz  -C /opt/SP/apps/tomcat --strip-components 1"
-   
-  - name: Remove ROOT folder initially
-    command: rm -rf /opt/SP/apps/tomcat/webapps/ROOT
     
   - name: Copy DevOps Project War Files
     copy: src=/root/.jenkins/workspace/Devops_301_demo/target/devops-0.0.1-SNAPSHOT.war dest=/opt/SP/apps/tomcat/webapps/ROOT.war mode=0644
