@@ -4,7 +4,7 @@ node {
 
      
   stage('Git-Checkout') {
-   git 'https://github.com/Sandeepkr93/completedevops.git'
+   git 'https://github.com/smbbasha/devops1.git'
   }
   stage('Input to continue forther') {
    input('git checkout done Do you want to forther proceed?')  
