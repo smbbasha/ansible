@@ -10,9 +10,9 @@
     synchronize: src=/root/.jenkins/workspace/Devops_301_demo/target/devops-0.0.1-SNAPSHOT.war dest=/opt/SP/apps/tomcat/webapps/ROOT/ 
 
   - name: Unzip WAR file
-    unarchive: src=/opt/SP/apps/tomcat/webapps/ROOT/devops-0.0.1-SNAPSHOT.war dest=/var/lib/tomcat7/webapps/ROOT/ copy=no mode=0755 owner=tomcat7 group=tomcat7
+    unarchive: src=/opt/SP/apps/tomcat/webapps/ROOT/devops-0.0.1-SNAPSHOT.war dest=/opt/SP/apps/tomcat/webapps/ROOT/ copy=no mode=0755 owner=tomcat7 group=tomcat7
     notify:
-        - Restart tomcat7
+        - Restart tomcat
 
   - name: Delete remote war file
     file: path=/opt/SP/apps/tomcat/webapps/ROOT/devops-0.0.1-SNAPSHOT.war state=absent
